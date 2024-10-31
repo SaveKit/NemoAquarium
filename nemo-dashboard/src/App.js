@@ -12,16 +12,17 @@ function App() {
   // Function to fetch the latest image from the backend
   const fetchImage = async () => {
     try {
-      const response = await fetch('http://localhost:3001/frame_objectdetection.jpg'); // Replace with your backend URL
-      if (response.ok) {
-        setImageSrc(`http://localhost:3001/frame_objectdetection.jpg?timestamp=${new Date().getTime()}`); // Prevent caching
-      } else {
-        console.error('Error fetching image:', response.status);
-      }
+        const response = await fetch('http://localhost:3001/image'); // Updated URL
+        if (response.ok) {
+            setImageSrc(`http://localhost:3001/image?timestamp=${new Date().getTime()}`); // Prevent caching
+        } else {
+            console.error('Error fetching image:', response.status);
+        }
     } catch (error) {
-      console.error('Error fetching image:', error);
+        console.error('Error fetching image:', error);
     }
-  };
+};
+
 
   useEffect(() => {
     const interval = setInterval(fetchImage, 1000); // Fetch image every second

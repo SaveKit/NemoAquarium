@@ -11,9 +11,10 @@ app.use(cors());
 
 // Serve the image
 app.get('/image', (req, res) => {
-    const imagePath = path.join(__dirname, 'frame_objectdetection.jpg');
+    const imagePath = path.join(__dirname, 'frame_objectdetection.jpg'); // Adjust the path as necessary
     fs.access(imagePath, fs.constants.F_OK, (err) => {
         if (err) {
+            console.error('Image not found:', err); // Log the error
             return res.status(404).send('Image not found');
         }
         res.sendFile(imagePath);

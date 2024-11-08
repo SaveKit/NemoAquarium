@@ -1,0 +1,32 @@
+.sensor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+  
+.sensor-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+  
+.sensor-box h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #4CAF50;
+}
+
+@media (max-width: 1200px) {
+    .sensor-grid {
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sensor-grid {
+      grid-template-columns: minmax(150px, 1fr);
+    }
+}

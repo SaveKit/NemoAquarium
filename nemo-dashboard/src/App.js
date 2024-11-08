@@ -20,7 +20,7 @@ function App() {
         <div className="flex flex-col items-center gap-4">
           <Switch label="LIGHT" isOn={lightOn} onToggle={() => setLightOn(!lightOn)} />
           <Switch label="PUMP" isOn={pumpOn} onToggle={() => setPumpOn(!pumpOn)} />
-          <Switch label="Feeder" isOn={feederOn} onToggle={() => setFeederOn(!feederOn)} />
+          <Switch label="FEEDER" isOn={feederOn} onToggle={() => setFeederOn(!feederOn)} />
         </div>
       </div>
       <DataDisplay />

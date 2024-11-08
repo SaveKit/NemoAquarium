@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./output.css";
 import Header from "./components/Header";
 import ImageDisplay from "./components/ImageDisplay";
-import Timer from "./components/Timer";
+import WorldClockDisplay from "./components/WorldClockDisplay"; 
 import Switch from "./components/Switch";
 import DataDisplay from "./components/DataDisplay";
 const API_BASE_URL = "http://localhost:5000";
@@ -88,7 +88,7 @@ function App() {
       <Header />
       <div className="flex flex-wrap justify-between gap-4 max-w-4xl w-full mt-8">
         <ImageDisplay />
-        <Timer initialTime={15 * 60} />
+        <WorldClockDisplay />
         <div className="flex flex-col items-center gap-4">
           <Switch label="LIGHT" isOn={lightOn} onToggle={handleLightToggle} />
           <Switch label="PUMP" isOn={pumpOn} onToggle={handlePumpToggle} />

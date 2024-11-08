@@ -12,6 +12,7 @@ const PORT = 5000; // You can use any port
 
 // Enable CORS for the front-end
 app.use(cors());
+app.use(express.json());
 
 // Root route
 app.get("/", (req, res) => {

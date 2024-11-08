@@ -1,9 +1,10 @@
 // server.js
 const express = require("express");
 const cors = require("cors");
-const pumpRoutes = require('./routes/pumpRoutes');
-const lightRoutes = require('./routes/lightRoutes');
-const feedingRoutes = require('./routes/feedingRoutes');
+const dataRoutes = require("./routes/dataRoutes");
+const pumpRoutes = require("./routes/pumpRoutes");
+const lightRoutes = require("./routes/lightRoutes");
+const feedingRoutes = require("./routes/feedingRoutes");
 const imageRoutes = require("./routes/imageRoutes");
 
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 // Use the routes
+app.use("/", dataRoutes);
 app.use("/", pumpRoutes);
 app.use("/", lightRoutes);
 app.use("/", feedingRoutes);

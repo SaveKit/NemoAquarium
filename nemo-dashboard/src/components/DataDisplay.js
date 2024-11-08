@@ -96,8 +96,8 @@ const SensorData = () => {
       <h2 className="text-xl font-semibold">DATA</h2>
       <div className="sensor-grid">
         <div className="sensor-box">
-          <h3>Soil Moisture</h3>
-          <p>{state.sensorData.waterTemp}%</p>
+          <h3>Water temperature</h3>
+          <p>{state.sensorData.waterTemp} °C</p>
           <GaugeChart
             id="soil-moisture-gauge"
             nrOfLevels={30}
@@ -108,8 +108,8 @@ const SensorData = () => {
           />
         </div>
         <div className="sensor-box">
-          <h3>Air Humidity</h3>
-          <p>{state.sensorData.turbidity}%</p>
+          <h3>Water turbidity</h3>
+          <p>{state.sensorData.turbidity} %</p>
           <GaugeChart
             id="air-humidity-gauge"
             nrOfLevels={30}
@@ -121,14 +121,14 @@ const SensorData = () => {
         </div>
 
         <div className="sensor-box">
-          <h3>Soil Moisture</h3>
+          <h3>Water temperature</h3>
           {/* <p>{state.sensorData.waterTempStatus}</p> */}
           <Line
             data={{
               labels: state.chartData.waterTemp.labels,
               datasets: [
                 {
-                  label: "Soil Moisture",
+                  label: "Water temperature",
                   data: state.chartData.waterTemp.data,
                   borderColor: "rgba(75, 192, 192, 1)",
                   backgroundColor: "rgba(75, 192, 192, 0.2)",
@@ -139,13 +139,13 @@ const SensorData = () => {
           />
         </div>
         <div className="sensor-box">
-          <h3>Air Humidity</h3>
+          <h3>Water turbidity</h3>
           <Line
             data={{
               labels: state.chartData.turbidity.labels,
               datasets: [
                 {
-                  label: "Air Humidity",
+                  label: "Water turbidity",
                   data: state.chartData.turbidity.data,
                   borderColor: "rgba(153, 102, 255, 1)",
                   backgroundColor: "rgba(153, 102, 255, 0.2)",

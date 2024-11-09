@@ -35,6 +35,10 @@ const initialState = {
   },
 };
 
+const calculatePercentage = (rawValue) => {
+  return ((rawValue / 1000) * 100).toFixed(2);
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_SENSOR_DATA":
@@ -91,6 +95,12 @@ const SensorData = () => {
     return () => clearInterval(interval);
   }, [fetchSensorData]);
 
+  const dataLimit = 20; // จำนวนค่าที่ต้องการแสดงในกราฟ
+
+  const getLimitedData = (data) => {
+    return data.slice(Math.max(data.length - dataLimit, 0));
+  };
+
   const DataDisplay = () => (
     <div className="border-2 border-blue-500 mt-4 p-4 w-full max-w-4xl rounded-lg bg-white">
       <h2 className="text-xl font-semibold">DATA</h2>
@@ -109,12 +119,12 @@ const SensorData = () => {
         </div>
         <div className="sensor-box">
           <h3>Water turbidity</h3>
-          <p>{state.sensorData.turbidity} %</p>
+          <p>{state.sensorData.turbidity} NTU</p>
           <GaugeChart
             id="air-humidity-gauge"
             nrOfLevels={30}
             textColor={"black"}
-            percent={state.sensorData.turbidity / 100}
+            percent={calculatePercentage(state.sensorData.turbidity) / 100}
             colors={["#69B3E7", "#3498DB"]}
             hideText={true}
           />
@@ -122,10 +132,9 @@ const SensorData = () => {
 
         <div className="sensor-box">
           <h3>Water temperature</h3>
-          {/* <p>{state.sensorData.waterTempStatus}</p> */}
           <Line
             data={{
-              labels: state.chartData.waterTemp.labels,
+              labels: getLimitedData(state.chartData.waterTemp.labels),
               datasets: [
                 {
                   label: "Water temperature",
@@ -142,7 +151,7 @@ const SensorData = () => {
           <h3>Water turbidity</h3>
           <Line
             data={{
-              labels: state.chartData.turbidity.labels,
+              labels: getLimitedData(state.chartData.turbidity.labels),
               datasets: [
                 {
                   label: "Water turbidity",

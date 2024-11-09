@@ -27,7 +27,7 @@ const WorldClockDisplay = () => {
     <div className="flex-1 border-2 border-blue-500 p-4 rounded-lg bg-white">
       <h2 className="text-xl font-semibold mb-2">Current time in Thailand</h2>
       <div className="text-4xl font-bold text-black">
-        {formatTime(time)} {/* แสดงเวลาในรูปแบบที่ต้องการ */}
+        {formatTime(time)}
       </div>
     </div>
   );

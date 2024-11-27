@@ -14,7 +14,7 @@ const Header = () => (
     <div className="bubble bubble--10"></div>
     <div className="bubble bubble--11"></div>
     <div className="bubble bubble--12"></div>
-    <h1 className="text-4xl font-bold mb-4 nemo relative">
+    <h1 className="text-4xl sm:text-2xl md:text-6xl font-bold mb-4 nemo relative">
       <span className="nemo-text-stroke">NEMO PROJECT</span>
       <span className="nemo-text-fill">NEMO PROJECT</span>
     </h1>
